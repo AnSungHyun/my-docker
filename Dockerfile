@@ -28,8 +28,8 @@ RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-buil
 RUN yum install -y java-1.8.0-openjdk-devel
 
 # Ruby 1.9.3-p551 설치
-RUN rbenv install 1.9.3-p551 && \
-    rbenv global 1.9.3-p551
+RUN /bin/bash -c "source ~/.bashrc && rbenv install 1.9.3-p551 && rbenv global 1.9.3-p551"
+
 
 # Sencha Cmd 5.0.0.160 설치
 RUN curl -o /tmp/SenchaCmd-5.0.0.160-linux-x64.run.zip https://cdn.sencha.com/cmd/5.0.0.160/SenchaCmd-5.0.0.160-linux-x64.run.zip && \
