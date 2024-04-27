@@ -38,6 +38,19 @@ RUN curl -o /tmp/SenchaCmd-5.0.0.160-linux-x64.run.zip https://cdn.sencha.com/cm
     echo -e '\n\n\n\n\n\ny\n/opt\n\n' | /tmp/SenchaCmd-5.0.0.160-linux-x64.run && \
     rm -f /tmp/SenchaCmd-5.0.0.160-linux-x64.run.zip
 
+# Sencha Cmd 설치 경로
+ENV SENCHA_CMD_PATH="/opt/Sencha/Cmd/5.0.0.160"
+
+# 대상 파일 경로
+ENV FILE_PATH="${SENCHA_CMD_PATH}/sencha.cfg"
+
+# 대체할 문자열
+ENV SEARCH_STRING="-Xms128m -Xmx1024m"
+ENV REPLACE_STRING="-Xms512m -Xmx4096m"
+
+# 파일 내의 모든 문자열 치환
+RUN sed -i "s/${SEARCH_STRING}/${REPLACE_STRING}/g" "${FILE_PATH}"
+
 # 환경변수 설정
 ENV PATH="/opt/Sencha/Cmd/5.0.0.160:${PATH}"
 
