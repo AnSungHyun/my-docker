@@ -14,6 +14,7 @@ RUN yum install -y \
     make \
     tar \
     unzip \
+	bzip2 \
     && yum clean all
 
 # rbenv 설치
