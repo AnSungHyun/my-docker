@@ -34,7 +34,11 @@ RUN git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv && \
 RUN git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-build
 
 # JDK 1.8.0_402 설치
-RUN yum install -y java-1.8.0-openjdk-devel
+# RUN yum install -y java-1.8.0-openjdk-devel
+# openjdk RPM 다운로드 및 설치
+RUN curl -o openjdk.rpm https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u402-b06/openlogic-openjdk-8u402-b06-linux-x64-el.rpm && \
+    yum install -y openjdk.rpm && \
+    rm openjdk.rpm
 
 # Ruby 1.9.3-p551 설치
 RUN /bin/bash -c "source /etc/profile && rbenv install 1.9.3-p551 && rbenv global 1.9.3-p551"
