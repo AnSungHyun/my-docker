@@ -61,4 +61,4 @@ ENV PATH="/opt/Sencha/Cmd/5.0.0.160:${PATH}"
 WORKDIR /app
 
 # Docker 컨테이너 실행 시 자동으로 sencha build 명령어 실행
-CMD ["sencha"]
+# CMD ["sencha"]
