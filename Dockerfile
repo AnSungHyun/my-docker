@@ -18,18 +18,20 @@ RUN yum install -y \
     && yum clean all
 
 # rbenv 설치
-RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
-    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+RUN git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv && \
+    echo 'export RBENV_ROOT="/usr/local/rbenv"' >> /etc/profile.d/rbenv.sh && \
+    echo 'export PATH="/usr/local/rbenv/bin:$PATH"' >> /etc/profile.d/rbenv.sh && \
+    echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh && \
+    source /etc/profile.d/rbenv.sh
 
 # ruby-build 플러그인 설치
-RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+RUN git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-build
 
 # JDK 1.8.0_402 설치
 RUN yum install -y java-1.8.0-openjdk-devel
 
 # Ruby 1.9.3-p551 설치
-RUN /bin/bash -c "source ~/.bashrc && rbenv install 1.9.3-p551 && rbenv global 1.9.3-p551"
+RUN /bin/bash -c "source /etc/profile.d/rbenv.sh && rbenv install 1.9.3-p551 && rbenv global 1.9.3-p551"
 
 
 # Sencha Cmd 5.0.0.160 설치
