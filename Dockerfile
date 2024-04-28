@@ -17,6 +17,12 @@ RUN yum install -y \
     bzip2 \
     && yum clean all
 
+# 새로운 사용자 생성
+ARG USERNAME=jenkins
+ARG USER_UID=1000
+RUN groupadd --gid $USER_UID $USERNAME && \
+    useradd --uid $USER_UID --gid $USER_UID --create-home --shell /bin/bash $USERNAME
+
 # rbenv 설치
 RUN git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv && \
     echo 'export RBENV_ROOT="/usr/local/rbenv"' >> /etc/profile && \
@@ -40,8 +46,12 @@ RUN curl -o /tmp/SenchaCmd-5.0.0.160-linux-x64.run.zip https://cdn.sencha.com/cm
     echo -e '\n\n\n\n\n\ny\n/opt\n\n' | /tmp/SenchaCmd-5.0.0.160-linux-x64.run && \
     rm -f /tmp/SenchaCmd-5.0.0.160-linux-x64.run.zip
 
+# Sencha Cmd 설치 경로 소유자 변경
+RUN chown -R jenkins:jenkins /opt/Sencha
+
 # Sencha Cmd 설치 경로
 ENV SENCHA_CMD_PATH="/opt/Sencha/Cmd/5.0.0.160"
+ENV SENCHA_CMD_3_0_0="/opt/Sencha/Cmd/5.0.0.160"
 
 # 대상 파일 경로
 ENV FILE_PATH="${SENCHA_CMD_PATH}/sencha.cfg"
