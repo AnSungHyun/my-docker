@@ -14,15 +14,15 @@ RUN yum install -y \
     make \
     tar \
     unzip \
-	bzip2 \
+    bzip2 \
     && yum clean all
 
 # rbenv 설치
 RUN git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv && \
-    echo 'export RBENV_ROOT="/usr/local/rbenv"' >> /etc/profile.d/rbenv.sh && \
-    echo 'export PATH="/usr/local/rbenv/bin:$PATH"' >> /etc/profile.d/rbenv.sh && \
-    echo 'eval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh && \
-    source /etc/profile.d/rbenv.sh
+    echo 'export RBENV_ROOT="/usr/local/rbenv"' >> /etc/profile && \
+    echo 'export PATH="/usr/local/rbenv/bin:$PATH"' >> /etc/profile && \
+    echo 'eval "$(rbenv init -)"' >> /etc/profile && \
+    source /etc/profile
 
 # ruby-build 플러그인 설치
 RUN git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/ruby-build
@@ -31,8 +31,7 @@ RUN git clone https://github.com/rbenv/ruby-build.git /usr/local/rbenv/plugins/r
 RUN yum install -y java-1.8.0-openjdk-devel
 
 # Ruby 1.9.3-p551 설치
-RUN /bin/bash -c "source /etc/profile.d/rbenv.sh && rbenv install 1.9.3-p551 && rbenv global 1.9.3-p551"
-
+RUN /bin/bash -c "source /etc/profile && rbenv install 1.9.3-p551 && rbenv global 1.9.3-p551"
 
 # Sencha Cmd 5.0.0.160 설치
 RUN curl -o /tmp/SenchaCmd-5.0.0.160-linux-x64.run.zip https://cdn.sencha.com/cmd/5.0.0.160/SenchaCmd-5.0.0.160-linux-x64.run.zip && \
@@ -55,7 +54,7 @@ ENV REPLACE_STRING="-Xms512m -Xmx4096m"
 RUN sed -i "s/${SEARCH_STRING}/${REPLACE_STRING}/g" "${FILE_PATH}"
 
 # 환경변수 설정
-ENV PATH="/opt/Sencha/Cmd/5.0.0.160:${PATH}"
+ENV PATH="/usr/local/rbenv/bin:/usr/local/rbenv/versions/1.9.3-p551/bin:/opt/Sencha/Cmd/5.0.0.160:${PATH}"
 
 # 작업 디렉토리 설정
 WORKDIR /app
