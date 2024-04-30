@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# JDK 8u402-b06 설치
+curl -o openjdk.rpm https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u402-b06/openlogic-openjdk-8u402-b06-linux-x64-el.rpm && \
+    yum install -y openjdk.rpm && \
+    rm openjdk.rpm
+
 # 다운로드 및 설치할 Maven 버전 및 URL
 MAVEN_VERSION="3.6.3"
 MAVEN_URL="https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz"
