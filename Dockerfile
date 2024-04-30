@@ -19,7 +19,7 @@ RUN yum install -y \
 
 # 새로운 사용자 생성
 ARG USERNAME=jenkins
-ARG USER_UID=1000
+ARG USER_UID=1003
 RUN groupadd --gid $USER_UID $USERNAME && \
     useradd --uid $USER_UID --gid $USER_UID --create-home --shell /bin/bash $USERNAME
 
