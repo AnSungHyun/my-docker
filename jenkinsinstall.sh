@@ -20,13 +20,19 @@ sudo curl -fsSL $JENKINS_URL -o $JENKINS_INSTALL_DIR/jenkins.war
 # Jenkins 실행을 위한 systemd 서비스 파일 생성
 sudo tee /etc/systemd/system/jenkins.service > /dev/null <<EOF
 [Unit]
-Description=Jenkins Service
-After=network.target
+Description=Jenkins Continuous Integration Server
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 User=jenkins
-ExecStart=/usr/bin/java -jar $JENKINS_INSTALL_DIR/jenkins.war --httpPort=8080
+Group=jenkins
+ExecStart=java -jar /opt/jenkins/jenkins.war --httpPort=8080
 Restart=always
+RestartSec=30
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=jenkins
 
 [Install]
 WantedBy=multi-user.target
