@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Jenkins 버전 및 URL
-JENKINS_VERSION="2.164.1"
+# curl -fsSL https://get.jenkins.io/war-stable/2.346.3/jenkins.war -o /opt/jenkins/jenkins.war
+JENKINS_VERSION="2.346.3"
 JENKINS_URL="https://get.jenkins.io/war-stable/${JENKINS_VERSION}/jenkins.war"
 
 # Jenkins Home 디렉토리
