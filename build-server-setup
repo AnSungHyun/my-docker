@@ -183,7 +183,7 @@ java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/jsch/0.1.55.2/jsch.hpi && \
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/plain-credentials/1.8/plain-credentials.hpi && \
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/apache-httpcomponents-client-4-api/4.5.13-138.v4e7d9a_7b_a_e61/apache-httpcomponents-client-4-api.hpi && \
-java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/credentials-binding/523.vd859a_4b_122e6/credentials-binding.hpi
+java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/credentials-binding/523.vd859a_4b_122e6/credentials-binding.hpi && \
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/jakarta-activation-api/2.0.0-2/jakarta-activation-api.hpi && \
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/jsch/0.1.55.61.va_e9ee26616e7/jsch.hpi
 
@@ -191,9 +191,7 @@ java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://
 -- subversion
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/subversion/2.17.1/subversion.hpi && \ 
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/mapdb-api/1.0.9.0/mapdb-api.hpi && \
-
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/caffeine-api/2.9.3-65.v6a_47d0f4d1fe/caffeine-api.hpi && \
-
 java -jar jenkins-cli.jar -s http://192.168.205.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/cloudbees-folder/6.740.ve4f4ffa_dea_54/cloudbees-folder.hpi
 
 ```
