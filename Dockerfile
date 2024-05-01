@@ -17,6 +17,9 @@ RUN yum install -y \
     bzip2 \
     && yum clean all
 
+# Timezone 설정
+ENV TZ=Asia/Seoul
+
 # 새로운 사용자 생성
 ARG USERNAME=jenkins
 ARG USER_UID=1003
