@@ -99,6 +99,13 @@ java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://up
 java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/publish-over-ssh/1.20.1/publish-over-ssh.hpi
 java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/publish-over/0.22/publish-over.hpi
 java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/locale/204.v2a_f305fe7e9d/locale.hpi
+java -jar jenkins-cli.jar -s http://192.168.126.128:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/antisamy-markup-formatter/155.v795fb_8702324/antisamy-markup-formatter.hpi
+
+java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/antisamy-markup-formatter/155.v795fb_8702324/antisamy-markup-formatter.hpi
+java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/workflow-api/1200.v8005c684b_a_c6/workflow-api.hpi
+
+java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/role-strategy/587.588.v850a_20a_30162/role-strategy.hpi
+java -jar jenkins-cli.jar -s http://172.90.10.174:8080 install-plugin https://updates.jenkins-ci.org/download/plugins/matrix-auth/3.1.5/matrix-auth.hpi
 
 Folders 
 OWASP Markup Formatter 
